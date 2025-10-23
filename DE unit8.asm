@@ -2,6 +2,7 @@
 ; NASM syntax for x86 architecture
 
 section .data
+    test_string db "{[()]}", 0    
     input_msg db "Enter string (max 100 chars): ", 0
     balanced_msg db "Parentheses are balanced!", 10, 0
     unbalanced_msg db "Parentheses are NOT balanced!", 10, 0
@@ -20,7 +21,7 @@ _start:
     mov dword [stack_ptr], 0
     
     ; Get input string (simplified - would use system calls)
-    mov esi, input         ; ESI points to input string
+    mov esi, test_string         ; CHANGE THIS LINE - ESI points to test_string
     
 check_loop:
     lodsb                  ; Load byte from [ESI] into AL
